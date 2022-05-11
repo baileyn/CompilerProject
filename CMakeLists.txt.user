@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.6.1, 2018-05-03T20:05:17. -->
+<!-- Written by QtCreator 4.6.1, 2018-05-04T14:53:30. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -291,7 +291,7 @@
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">CompilerProject</value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments">example_one.pas</value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
-    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory.default"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory.default">/home/nicholas/qtcreator/build-CompilerProject-Desktop-Default</value>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">CompilerProject</value>

@@ -14,6 +14,9 @@ int main(int argc, char** argv)
     if (argc != 2) {
         std::cout << "Please enter the file name: ";
         std::getline(std::cin, fileName);
+    } else {
+      // File was supplied as an argument.
+      fileName = argv[1];
     }
 
     Tokenizer tokenizer;
