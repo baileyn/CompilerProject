@@ -91,7 +91,8 @@ Token Tokenizer::readNextToken()
     // Attempt to read an identifier
     push();
     if (readIdentifier(token)) {
-        // Check if the identifier is a reserved keyword, if so change the token type.
+        // Check if the identifier is a reserved keyword, if so change the token
+        // type.
         if (std::find(std::begin(KEYWORDS), std::end(KEYWORDS), token.data) !=
             std::end(KEYWORDS)) {
             token.type = Token::Type::KEYWORD;
@@ -158,7 +159,7 @@ bool Tokenizer::readWhitespace(Token& outputToken)
     size_t startColumn = m_columNumber;
 
     // While the next character is whitespace, add it to the token data.
-    while (std::iswspace(peek())) {
+    while (::iswspace(peek())) {
         data += next();
     }
 
@@ -181,11 +182,11 @@ bool Tokenizer::readIdentifier(Token& outputToken)
     size_t startColumn = m_columNumber;
 
     // Make sure the first character is a letter
-    if (std::isalpha(peek())) {
+    if (::isalpha(peek())) {
         data += next();
 
         // Read while it's a letter, numeric, or underscore.
-        while (std::isalnum(peek()) || peek() == '_') {
+        while (::isalnum(peek()) || peek() == '_') {
             data += next();
         }
     }
@@ -194,7 +195,7 @@ bool Tokenizer::readIdentifier(Token& outputToken)
     if (!data.empty()) {
         // Convert the name to uppercase so we dont' have to worry about casing.
         for (auto& c : data) {
-            c = std::toupper(c);
+            c = ::toupper(c);
         }
 
         outputToken.type = Token::Type::IDENTIFIER;
@@ -241,7 +242,7 @@ bool Tokenizer::readInteger(Token& outputToken)
     size_t startColumn = m_columNumber;
 
     // While what we're reading is a digit, add it to the data.
-    while (std::isdigit(peek())) {
+    while (::isdigit(peek())) {
         data += next();
     }
 
@@ -289,7 +290,8 @@ bool Tokenizer::readAssignment(Token& outputToken)
     size_t startLine = m_lineNumber;
     size_t startColumn = m_columNumber;
 
-    // Check for the assignment operator. This requires both : and = without any whitespace.
+    // Check for the assignment operator. This requires both : and = without any
+    // whitespace.
     if (peek() == ':') {
         data += next();
 
@@ -358,7 +360,8 @@ char Tokenizer::next()
         char read = m_source[m_index++];
 
         if (read == '\r') {
-            // Technically, carriage return means to reset column number, so handle that here.
+            // Technically, carriage return means to reset column number, so
+            // handle that here.
             m_columNumber = 0;
         } else if (read == '\n') {
             // Reset the column numner and line number with \n
